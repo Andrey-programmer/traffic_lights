@@ -10,6 +10,9 @@ export default {
     components: {
         timer
     },
+    mounted() {
+        localStorage.router = this.$route.path
+    },
     beforeDestroy() {
         clearTimeout(this.myTimeout)
     }

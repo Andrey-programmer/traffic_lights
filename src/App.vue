@@ -2,6 +2,9 @@
   <div id="app">
     <div class="container">
       <div class="row">
+        <div class="col-sm-3 m-auto">
+          <saver></saver>
+        </div>
         <div class="col-sm-8 m-auto pt-5">
           <div class="buttons">
             <router-link tag="button" to="/red" class="btn btn-primary">Red</router-link>
@@ -18,9 +21,12 @@
 </template>
 
 <script>
+import saver from '@/components/saver'
+
 export default {
   name: 'App',
   components: {
+    saver
   }
 }
 </script>
