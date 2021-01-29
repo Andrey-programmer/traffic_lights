@@ -22,6 +22,11 @@ export default {
         try {
             this.myTimer = await setInterval (() => {
             this.sec--; 
+            // Мигание
+            if(this.sec <= 3) {
+                this.$emit('flashing', true)
+            }
+
         }, 1000)
         } catch (error) {
             console.log(error)

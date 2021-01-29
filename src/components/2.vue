@@ -19,7 +19,8 @@ import timer from './timer'
 export default {  
     data() {
         return {
-           time: 3
+            myTimeout: null,
+            time: 3
         }
     },    
     components: {
@@ -27,7 +28,7 @@ export default {
     },
     async mounted() {
         try {
-            await setTimeout(() => {
+            this.myTimeout = await setTimeout(() => {
                 if(this.$store.getters.greenFlag) {
                     this.$router.push('/green')
                 } else {
@@ -40,6 +41,9 @@ export default {
         }
        
     },
+    beforeDestroy() {
+        clearInterval(this.myTimeout)
+    }
 }
 </script>
 
