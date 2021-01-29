@@ -5,27 +5,41 @@
             v-for="num in 3"
             :key="num"
         >
+            <timer 
+                v-if="num === 2"
+                :seconds = time
+            ></timer>
         </div>
     </div>
 </template>
 
 <script>
-export default {
+import timer from './timer'
+
+export default {  
     data() {
         return {
-            
+           time: 3
         }
+    },    
+    components: {
+        timer
     },
     async mounted() {
-        await setTimeout(() => {
-            if(this.$store.getters.greenFlag) {
-                this.$router.push('/green')
-            } else {
-                this.$router.push('/red') 
-            }
-        }, 3000);
+        try {
+            await setTimeout(() => {
+                if(this.$store.getters.greenFlag) {
+                    this.$router.push('/green')
+                } else {
+                    this.$router.push('/red') 
+                }
+            }, this.time * 1000);
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+       
     },
-    title: 'Светофор_2'
 }
 </script>
 

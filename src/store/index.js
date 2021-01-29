@@ -18,9 +18,9 @@ export default new Vuex.Store({
         },
         setGreenOff(state) {
             state.greenOn = false
-        }
+        }      
     },
     actions: {
-
+       
     }
 })

@@ -2,8 +2,15 @@
   <div id="app">
     <div class="container">
       <div class="row">
-        <div class="col-sm-5 m-auto pt-5">
-           <router-view></router-view>
+        <div class="col-sm-8 m-auto pt-5">
+          <div class="buttons">
+            <router-link tag="button" to="/red" class="btn btn-primary">Red</router-link>
+            <router-link tag="button" to="/yellow" class="btn btn-primary">Yellow</router-link>
+            <router-link tag="button" to="/green" class="btn btn-primary">Green</router-link>
+          </div>
+          <div class="col-sm-5 m-auto pt-5">
+            <router-view></router-view>
+          </div>
         </div>
       </div>
     </div>
@@ -35,6 +42,7 @@ export default {
     border-radius: 5px;
     border: 1px solid #000;
     opacity: .5;
+    position: relative;
 
     &:first-of-type {
       background-color: red;
@@ -46,7 +54,10 @@ export default {
 
     &:last-of-type {
       background-color: green;
-    }
+    }   
   }
 
+  button { 
+    width: 100px;
+  }
 </style>

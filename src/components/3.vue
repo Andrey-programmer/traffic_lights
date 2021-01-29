@@ -5,17 +5,36 @@
             v-for="num in 3"
             :key="num"
         >
+             <timer 
+                v-if="num === 3"
+                :seconds = time
+            ></timer>
         </div>
     </div>
 </template>
 
 <script>
+import timer from './timer'
+
 export default {
+    data() {
+        return {
+           time: 15
+        }
+    },    
+    components: {
+        timer
+    },
     async mounted() {
-        this.$store.commit('setGreenOff')
-        await setTimeout(() => {
-            this.$router.push('/yellow')            
-        }, 15000);
+        try {
+            this.$store.commit('setGreenOff')
+            await setTimeout(() => {
+                this.$router.push('/yellow')            
+            }, this.time * 1000);
+            
+        } catch (error) {
+            console.log(error)
+        }
         
     }
 }
