@@ -17,18 +17,15 @@
 
 <script>
 
-import timer from './timer'
+import mixin from '../mixins'
+
 export default {
+    mixins: [mixin],
     data() {
         return {
-            myTimeout: null,
             time: 10,
-            flashing: false
         }
     },    
-    components: {
-        timer
-    },
     async mounted() {
         try {
             this.$store.commit('setGreenOn')
@@ -38,34 +35,12 @@ export default {
         } catch (error) {
             console.log(error)
         }
-    },
-    beforeDestroy() {
-        clearTimeout(this.myTimeout)
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @keyframes flashing {
-        0% {
-            opacity: 1;
-        }
-        20% {
-            opacity: .3;
-        }
-        40% {
-            opacity: 1;
-        }
-        60% {
-            opacity: .3;
-        }
-        80% {
-            opacity: 1;
-        }
-        100% {
-            opacity: .3;
-        }
-    }
+    
 
     .rounded-circle:first-of-type {
         opacity: 1;

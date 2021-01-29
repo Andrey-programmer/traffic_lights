@@ -14,18 +14,15 @@
 </template>
 
 <script>
-import timer from './timer'
+import mixin from '../mixins'
 
-export default {  
+export default {
+    mixins: [mixin],  
     data() {
         return {
-            myTimeout: null,
             time: 3
         }
     },    
-    components: {
-        timer
-    },
     async mounted() {
         try {
             this.myTimeout = await setTimeout(() => {
@@ -39,10 +36,6 @@ export default {
             console.log(error)
             throw error
         }
-       
-    },
-    beforeDestroy() {
-        clearInterval(this.myTimeout)
     }
 }
 </script>

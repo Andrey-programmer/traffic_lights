@@ -16,19 +16,15 @@
 </template>
 
 <script>
-import timer from './timer'
+import mixin from '../mixins'
 
 export default {
+    mixins: [mixin],
     data() {
         return {
-           myTimeout: null,
-           time: 15,
-           flashing: false
+           time: 15
         }
     },    
-    components: {
-        timer
-    },
     async mounted() {
         try {
             this.$store.commit('setGreenOff')
@@ -39,36 +35,11 @@ export default {
         } catch (error) {
             console.log(error)
         }
-        
-    },
-    beforeDestroy() {
-        clearInterval(this.myTimeout)
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @keyframes flashing {
-        0% {
-            opacity: 1;
-        }
-        20% {
-            opacity: .3;
-        }
-        40% {
-            opacity: 1;
-        }
-        60% {
-            opacity: .3;
-        }
-        80% {
-            opacity: 1;
-        }
-        100% {
-            opacity: .3;
-        }
-    }
-
     .rounded-circle:last-of-type {
         opacity: 1;
 
@@ -76,5 +47,4 @@ export default {
             animation: flashing 3s infinite;
         }
     }
-
 </style>

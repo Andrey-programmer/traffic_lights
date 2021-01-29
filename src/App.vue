@@ -26,6 +26,27 @@ export default {
 </script>
 
 <style lang="scss">
+  @keyframes flashing {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: .3;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: .3;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .3;
+    }
+  }
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
