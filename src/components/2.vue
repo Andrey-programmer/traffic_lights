@@ -26,9 +26,19 @@ export default {
     async mounted() {
         try {
             this.myTimeout = await setTimeout(() => {
-                if(this.$store.getters.greenFlag) {
+                if(localStorage.greenOn === "true") {
+                    localStorage.closeRoute = true
                     this.$router.push('/green')
+                    // ! До записи в хранилище использовал store //
+                    // if(this.$store.getters.greenFlag) {
+                    //     localStorage.closeRoute = true
+                    //     this.$router.push('/green')
+                    // } else {
+                    //     localStorage.closeRoute = true
+                    //     this.$router.push('/red') 
+                    // }
                 } else {
+                    localStorage.closeRoute = true
                     this.$router.push('/red') 
                 }
             }, this.time * 1000);
@@ -36,6 +46,7 @@ export default {
             console.log(error)
             throw error
         }
+        
     }
 }
 </script>

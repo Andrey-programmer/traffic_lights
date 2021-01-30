@@ -3,7 +3,7 @@
         <p v-if="route">
             <b>Save position:</b>
             <br> 
-            route: "{{route}}", time: {{time}}sec
+            route: "{{route}}", time: {{stime}}sec
         </p>
         <button type="button" class="btn btn-success" @click="save">Save position</button>
         <br>
@@ -18,18 +18,20 @@
             return {
                 runner: false,
                 route: null,
-                time: null
+                stime: null
             }
         },
         mounted() {
-            this.route = localStorage.router
-            this.time = localStorage.saverTime
+            this.route = localStorage.route
+            this.stime = localStorage.saverTime
         },
         methods: {
             save() {
                 this.route = localStorage.route = localStorage.router
-                this.time = localStorage.saverTime = localStorage.time
+                this.stime = localStorage.saverTime = localStorage.time
                 this.runner = false
+
+                console.log(localStorage)
             },
             run() {
                 this.runner = true

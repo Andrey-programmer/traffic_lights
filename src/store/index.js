@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
+// Использовал до записи в хранилище
 export default new Vuex.Store({
     state: {
         greenOn: false
@@ -19,8 +19,5 @@ export default new Vuex.Store({
         setGreenOff(state) {
             state.greenOn = false
         }      
-    },
-    actions: {
-       
     }
 })
