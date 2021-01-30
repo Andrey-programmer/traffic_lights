@@ -9,9 +9,13 @@ export default {
     },    
     components: {
         timer
-    },
-    mounted() {
+    },  
+    created() {
+        if(this.$route.query.time) {
+            this.time = this.$route.query.time
+        }
         localStorage.router = this.$route.path
+
     },
     beforeDestroy() {
         clearTimeout(this.myTimeout)

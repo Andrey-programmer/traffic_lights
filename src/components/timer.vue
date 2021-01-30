@@ -17,10 +17,17 @@ export default {
     },
     created() {
         this.sec = this.seconds
-        console.log('this.sec = ', localStorage.mlyat)
+    },
+    watch: {
+        sec() {
+            localStorage.time = this.sec
+            // console.log(localStorage)
+        },
+        $route() {
+            this.sec = localStorage.saverTime
+        }
     },
     async mounted() {     
-        console.log(localStorage)
         try {
             this.myTimer = await setInterval (() => {
             this.sec--; 
@@ -36,7 +43,6 @@ export default {
     },
     beforeDestroy() {
         clearInterval(this.myTimer)
-        localStorage.mlyat = this.sec
     }
 
 }
