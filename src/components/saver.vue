@@ -23,7 +23,7 @@
         },
         mounted() {
             this.route = localStorage.router
-            this.time = localStorage.time
+            this.time = localStorage.saverTime
         },
         methods: {
             save() {
