@@ -30,9 +30,9 @@ export default {
         runTimer () {
             localStorage.greenOn = true
             this.myTimeout = setTimeout(() => {
-            localStorage.closeRoute = true
-            this.$router.push('/yellow')
-        }, this.time * 1000);  
+                localStorage.closeRoute = true
+                this.$router.push('/yellow')
+            }, this.time * 1000);  
         }
     }
 }

@@ -10,7 +10,7 @@ export default {
     props: ['seconds'],
     data() {
         return {
-            myTimer: null,
+            myInterval: null,
             started: false,  
             sec: null
         }
@@ -29,7 +29,7 @@ export default {
     },
     async mounted() {     
         try {
-            this.myTimer = await setInterval (() => {
+            this.myInterval = await setInterval (() => {
             this.sec--; 
             // Мигание
             if(this.sec <= 3) {
@@ -42,7 +42,7 @@ export default {
         }
     },
     beforeDestroy() {
-        clearInterval(this.myTimer)
+        clearInterval(this.myInterval)
     }
 
 }
