@@ -34,9 +34,6 @@ export default {
             this.$router.push('/yellow')
         }, this.time * 1000);  
         }
-    },
-    mounted() {
-        this.runTimer()
     }
 }
 </script>

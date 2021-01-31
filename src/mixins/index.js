@@ -22,6 +22,9 @@ export default {
         console.log(localStorage)
         delete localStorage.destroy
     },
+    mounted() {
+        this.runTimer()
+    },
     beforeDestroy() {       
         clearTimeout(this.myTimeout)
     }
