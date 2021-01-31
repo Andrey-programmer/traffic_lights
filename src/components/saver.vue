@@ -7,7 +7,7 @@
         </p>
         <button type="button" class="btn btn-success" @click="save">Save position</button>
         <br>
-        <button :disabled=runner type="button" class="btn btn-dark mt-5" @click="run" >Run position</button>
+        <button :disabled="runner || route === $route.path" type="button" class="btn btn-dark mt-5" @click="run" >Run position</button>
         
     </div>
 </template>
@@ -30,8 +30,6 @@
                 this.route = localStorage.route = localStorage.router
                 this.stime = localStorage.saverTime = localStorage.time
                 this.runner = false
-
-                console.log(localStorage)
             },
             run() {
                 this.runner = true

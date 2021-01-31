@@ -20,7 +20,6 @@ export default {
         localStorage.router = this.$route.path
         localStorage.closeRoute = false
         console.log(localStorage)
-        delete localStorage.destroy
     },
     mounted() {
         this.runTimer()

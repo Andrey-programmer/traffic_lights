@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         greenOn: false,
-        handlechange: false
+        handlechange: false,
+        stopTimeout: false
     },
     getters: {
         greenFlag(state) {
@@ -25,6 +26,6 @@ export default new Vuex.Store({
         },
         setHandleChange(state) {
             state.handlechange = true
-        }  
+        }
     }
 })
