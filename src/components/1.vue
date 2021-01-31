@@ -26,17 +26,17 @@ export default {
             time: 10,
         }
     },    
-    async mounted() {
-        try {
-            // this.$store.commit('setGreenOn')
+    methods: {
+        runTimer () {
             localStorage.greenOn = true
-            this.myTimeout = await setTimeout(() => {
+            this.myTimeout = setTimeout(() => {
             localStorage.closeRoute = true
             this.$router.push('/yellow')
         }, this.time * 1000);  
-        } catch (error) {
-            console.log(error)
         }
+    },
+    mounted() {
+        this.runTimer()
     }
 }
 </script>

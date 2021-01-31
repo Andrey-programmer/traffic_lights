@@ -5,11 +5,15 @@ Vue.use(Vuex)
 // Использовал до записи в хранилище
 export default new Vuex.Store({
     state: {
-        greenOn: false
+        greenOn: false,
+        handlechange: false
     },
     getters: {
         greenFlag(state) {
             return state.greenOn 
+        },
+        getHandleChange(state) {
+            return state.handlechange
         }
     },
     mutations: {
@@ -18,6 +22,9 @@ export default new Vuex.Store({
         },
         setGreenOff(state) {
             state.greenOn = false
-        }      
+        },
+        setHandleChange(state) {
+            state.handlechange = true
+        }  
     }
 })

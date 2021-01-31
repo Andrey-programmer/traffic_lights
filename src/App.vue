@@ -6,7 +6,7 @@
           <saver></saver>
         </div>
         <div class="col-sm-8 m-auto pt-5">
-          <div class="buttons">
+          <div class="buttons" @click="handle">
             <router-link tag="button" to="/red" class="btn btn-primary">Red</router-link>
             <router-link tag="button" to="/yellow" class="btn btn-primary">Yellow</router-link>
             <router-link tag="button" to="/green" class="btn btn-primary">Green</router-link>
@@ -24,9 +24,14 @@
 import saver from '@/components/saver'
 
 export default {
-  name: 'App',
+  name: 'App', 
   components: {
     saver
+  },
+  methods: {
+    handle() {
+      this.$store.commit('setHandleChange')
+    }
   }
 }
 </script>

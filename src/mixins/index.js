@@ -11,7 +11,7 @@ export default {
         timer
     },  
     created() {
-        if(localStorage.closeRoute === "false") {
+        if(localStorage.closeRoute === "false" && !this.$store.getters.getHandleChange) {
             this.time = localStorage.time
         }
         if(this.$route.query.time) {
